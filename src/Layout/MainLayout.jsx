@@ -1,13 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router';
+import Navbar from '../Components/Navbar';
 
 const MainLayout = () => {
     return (
         <>
-            <header>
-                <nav className=''>I am navbar</nav>
+            <header className='container mx-auto border-2'>
+                <Navbar></Navbar>
             </header>
-            <main>
+            <main className='container mx-auto border-2'>
                 <Outlet></Outlet>
             </main>
         </>
