@@ -26,42 +26,23 @@ const MyListingPage = () => {
 
                         <tbody>
                             {/* Example Row */}
-                            <tr className="border-b border-gray-700 hover:bg-gray-700/40 transition duration-200">
-                                <td className="py-4 px-6">Toyota Camry</td>
-                                <td className="py-4 px-6">Sedan</td>
-                                <td className="py-4 px-6">$80 / day</td>
-                                <td className="py-4 px-6">
-                                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-600 text-white">
-                                        Available
-                                    </span>
-                                </td>
-                                <td className="py-4 px-6 text-center">
-                                    <div className="flex justify-center gap-3">
-                                        <button className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 transition font-semibold text-white">
-                                            Update
-                                        </button>
-                                        <button className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 transition font-semibold text-white">
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+
 
                             <tr className="border-b border-gray-700 hover:bg-gray-700/40 transition duration-200">
                                 <td className="py-4 px-6">BMW X5</td>
                                 <td className="py-4 px-6">SUV</td>
                                 <td className="py-4 px-6">$120 / day</td>
                                 <td className="py-4 px-6">
-                                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-red-600 text-white">
+                                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-red-300 text-white">
                                         Booked
                                     </span>
                                 </td>
                                 <td className="py-4 px-6 text-center">
                                     <div className="flex justify-center gap-3">
-                                        <button className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 transition font-semibold text-white">
+                                        <button className="px-4 py-2 rounded-lg btn-outline border-2 border-teal-700  hover:bg-teal-300 transition font-semibold text-white">
                                             Update
                                         </button>
-                                        <button className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 transition font-semibold text-white">
+                                        <button className="px-4 py-2 rounded-lg btn-outline border-2 border-red-500  hover:bg-red-500 transition font-semibold text-white">
                                             Delete
                                         </button>
                                     </div>

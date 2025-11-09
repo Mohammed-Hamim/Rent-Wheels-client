@@ -29,18 +29,8 @@ const MyBookings = () => {
                             </tr>
                         </tbody>
                     </table>
-
-
-
-
                 </div>
             </div>
-
-
-
-
-
-
         </div>
 
     );
