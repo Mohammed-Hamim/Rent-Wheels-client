@@ -10,7 +10,7 @@ const Card = ({ car }) => {
                     <img
                         src={car.image_url}
 
-                        alt="BMW 3 Series"
+                        alt={car.name}
                         class="w-full h-52 object-cover"
                     />
                     <div className="badge bg-[#81ecec] badge-success absolute top-2 right-2 font-bold">Available</div>
