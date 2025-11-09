@@ -12,6 +12,8 @@ import BrowseCarPage from './Pages/BrowseCarPage'
 import LoginPage from './Pages/LoginPage'
 import RegistrationPage from './Pages/RegistrationPage'
 
+import CarDetails from './Pages/CarDetails'
+
 
 
 
@@ -36,7 +38,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'browse_cars',
+        loader: () => fetch('http://localhost:3000/all_cars'),
         element: <BrowseCarPage></BrowseCarPage>
+      },
+      {
+        path: "/carDetails/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/all_cars/${params.id}`),
+        element: <CarDetails></CarDetails>
       },
       {
         path: 'login',

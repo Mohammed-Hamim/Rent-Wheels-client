@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Card = ({ car }) => {
 
@@ -38,9 +39,10 @@ const Card = ({ car }) => {
                         <span className="font-medium text-white">Provider:</span> {car.provider_name}
                     </p>
 
-                    <button className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
+                    <Link to={`/carDetails/${car._id}`}
+                     className="w-full btn bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
                         View Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
