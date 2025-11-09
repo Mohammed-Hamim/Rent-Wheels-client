@@ -3,45 +3,46 @@ import React from 'react';
 const Card = ({ car }) => {
 
     return (
+
+
+
         <div>
-            <div class=" bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden">
-                {/*  Car Image  */}
-                <div className='relative'>
+            <div className="bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-600">
+                {/* Car Image */}
+                <div className="relative">
                     <img
                         src={car.image_url}
-
-                        alt={car.name}
-                        class="w-full h-52 object-cover"
+                        alt={car.car_name}
+                        className="w-full h-52 object-cover"
                     />
-                    <div className="badge bg-[#81ecec] badge-success absolute top-2 right-2 font-bold">Available</div>
-
+                    <div className="badge bg-teal-400 text-gray-900 font-bold absolute top-2 right-2">
+                        Available
+                    </div>
                 </div>
 
-                {/* Content  */}
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-1">
+                {/* Content */}
+                <div className="p-4">
+                    <h2 className="text-xl font-semibold text-white mb-1">
                         {car.car_name}
                     </h2>
 
-                    <p class="text-gray-600 mb-1">
-                        <span class="font-medium text-gray-800">Rent Price:</span> ${car.rent_price} / day
+                    <p className="text-gray-300 mb-1">
+                        <span className="font-medium text-white">Rent Price:</span> ${car.rent_price} / day
                     </p>
 
-                    <p class="text-[#2f3640] mb-1">
-                        <span class="font-medium text-gray-800">Model:</span>  {car.category}
+                    <p className="text-gray-300 mb-1">
+                        <span className="font-medium text-white">Model:</span> {car.category}
                     </p>
 
-                    <p class="text-gray-600 mb-3">
-                        <span class="font-medium text-gray-800">Provider:</span> {car.provider_name}
+                    <p className="text-gray-300 mb-3">
+                        <span className="font-medium text-white">Provider:</span> {car.provider_name}
                     </p>
 
-                    <button
-                        class="w-full bg-primary hover:bg-[#00b894] text-white py-2 rounded-lg font-medium transition">
+                    <button className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
                         View Details
                     </button>
                 </div>
             </div>
-
         </div>
     );
 };

@@ -40,8 +40,8 @@ const Navbar = () => {
             <div className="navbar-end space-x-4">
 
 
-                <Link to='/login' className='btn btn-outline border-primary border-2'>Log in </Link>
-                <Link to='/register' className='btn bg-green-800 border-0'>Sing Up</Link>
+                <Link to='/login' className='btn btn-outline border-teal-900 border-2 hover:text-teal-400'>Log in </Link>
+                <Link to='/register' className='btn bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
             </div>
         </div >
     );

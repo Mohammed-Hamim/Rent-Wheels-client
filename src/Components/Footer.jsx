@@ -6,7 +6,7 @@ import { FaSquareInstagram, FaSquareXTwitter } from 'react-icons/fa6';
 const Footer = () => {
     return (
 
-        <footer className="bg-gray-900 text-gray-200 py-12">
+        <footer className="bg-gray-950 text-gray-200 py-12">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
 
@@ -15,9 +15,9 @@ const Footer = () => {
                         <img
                             src={logo}
                             alt="RentWheels Logo"
-                            className="w-24"
+                            className="w-24 mb-3"
                         />
-                        <h1 className="text-2xl font-bold text-white">RentWheels</h1>
+                        <h1 className="text-2xl font-bold text-primary">RentWheels</h1>
                         <p className="text-gray-400 mt-2 max-w-xs">
                             Your reliable partner for car rentals. Premium cars, top-rated services, and seamless bookings.
                         </p>
@@ -37,16 +37,34 @@ const Footer = () => {
                     <div>
                         <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
                         <ul className="text-gray-400 space-y-2">
-                            <li><a href="#" className="hover:text-blue-500 transition">Terms & Conditions</a></li>
-                            <li><a href="#" className="hover:text-blue-500 transition">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-blue-500 transition">FAQ</a></li>
+                            <li>
+                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="hover:text-blue-400 transition-colors duration-300">
+                                    FAQ
+                                </a>
+                            </li>
                         </ul>
 
                         {/* Social Media */}
                         <div className="flex mt-6 space-x-4">
-                            <a href="#" className="hover:text-blue-500 transition"> <FaFacebook size={30} />  </a>
-                            <a href="#" className="hover:text-blue-950 transition"> <FaSquareXTwitter size={30} /></a>
-                            <a href="#" className="hover:text-pink-500 transition"> <FaSquareInstagram size={30} /></a>
+                            <a href="#" className="text-gray-400 hover:text-blue-500 transition duration-300">
+                                <FaFacebook size={30} />
+                            </a>
+                            <a href="#" className="text-gray-400 hover:text-sky-400 transition duration-300">
+                                <FaSquareXTwitter size={30} />
+                            </a>
+                            <a href="#" className="text-gray-400 hover:text-pink-500 transition duration-300">
+                                <FaSquareInstagram size={30} />
+                            </a>
                         </div>
                     </div>
 
@@ -58,6 +76,8 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+
+
 
 
     );
