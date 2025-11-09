@@ -55,7 +55,7 @@ const Slider = () => {
                                 <h2 className="text-white text-xl md:text-4xl font-semibold tracking-wider
 ">{slide.title}</h2>
                                 <p className="text-pink-100 text-sm md:text-xl font-semibold">{slide.description}</p>
-                                <button className="btn text-white btn-outline border-primary border-2 px-6 font-semibold tracking-wider">{slide.buttonText}</button>
+                                <button className="btn text-white btn-outline border-primary bg-primary border-2 px-6 font-semibold tracking-wider">{slide.buttonText}</button>
                             </div>
                         </div>
 

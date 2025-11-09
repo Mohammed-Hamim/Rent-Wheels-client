@@ -19,10 +19,11 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
-    hydrateFallbackElement:<Loading></Loading>,
+    hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
-        index: true, 
+        index: true,
+        loader: () => fetch('http://localhost:3000/newest-cars'),
         element: <HomePage></HomePage>
       },
       {
