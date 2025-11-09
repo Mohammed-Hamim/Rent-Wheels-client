@@ -13,6 +13,8 @@ import LoginPage from './Pages/LoginPage'
 import RegistrationPage from './Pages/RegistrationPage'
 
 import CarDetails from './Pages/CarDetails'
+import MyBookings from './Pages/MyBookings'
+import ErrorPage from './Pages/ErrorPage'
 
 
 
@@ -21,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
@@ -35,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: 'my_listing',
         element: <MyListingPage></MyListingPage>
+      },
+      {
+        path: 'my_bookings',
+        element: <MyBookings></MyBookings>
       },
       {
         path: 'browse_cars',
