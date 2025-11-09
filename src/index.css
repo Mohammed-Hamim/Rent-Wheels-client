@@ -1,13 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default;
+  themes: dark --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #3E7B27;
+  --color-secondary: #D3D04F;
 }
 
 
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
-  --color-primary: blue;
-  --color-secondary: teal;
+*{
+  font-family: "Roboto", sans-serif;
+}
+
+ul a.active{
+     /* background-color:#EFE3C2; */
+      text-decoration: underline;
 }

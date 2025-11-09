@@ -6,14 +6,14 @@ const Navbar = () => {
 
 
     const links = <>
-        <li className='nav-link'><NavLink to="/">Home</NavLink></li>
-        <li className='nav-link'><NavLink to="/add_car">Add Car</NavLink></li>
-        <li className='nav-link'><NavLink to='/my_listing'>My-Listings</NavLink></li>
-        <li className='nav-link'><NavLink to='/browse_cars'>Browse Cars</NavLink></li>
+        <li ><NavLink to="/">Home</NavLink></li>
+        <li ><NavLink to="/add_car">Add Car</NavLink></li>
+        <li ><NavLink to='/my_listing'>My-Listings</NavLink></li>
+        <li ><NavLink to='/browse_cars'>Browse Cars</NavLink></li>
     </>
 
     return (
-        <div className="navbar container mx-auto bg-base-100 ">
+        <div className="navbar container mx-auto bg-transparent">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,17 +21,17 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content font-bold rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {
                             links
                         }
 
                     </ul>
                 </div>
-                <a className="font-bold text-3xl">rent<span className="text-primary ">Wheels</span></a>
+                <a className="font-bold text-primary md:text-3xl text-xl">RENTWHEELS</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal font-bold text-white tracking-wider px-1">
                     {
                         links
                     }
@@ -40,8 +40,8 @@ const Navbar = () => {
             <div className="navbar-end space-x-4">
 
 
-                <Link to='/login'>Log in </Link>
-                <Link to='/register'>Sing Up</Link>
+                <Link to='/login' className='btn btn-outline border-primary border-2'>Log in </Link>
+                <Link to='/register' className='btn bg-green-800 border-0'>Sing Up</Link>
             </div>
         </div >
     );

@@ -5,10 +5,10 @@ import Navbar from '../Components/Navbar';
 const MainLayout = () => {
     return (
         <>
-            <header className='container mx-auto border-2'>
+            <header className='container relative z-10  mx-auto '>
                 <Navbar></Navbar>
             </header>
-            <main className='container mx-auto border-2'>
+            <main className=' min-h-screen '>
                 <Outlet></Outlet>
             </main>
         </>
