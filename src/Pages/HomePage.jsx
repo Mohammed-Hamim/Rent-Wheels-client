@@ -5,6 +5,7 @@ import RentUs from '../Components/RentUs';
 import Slider from '../Components/Slider';
 import { useLoaderData } from 'react-router';
 import TopRatedCarCard from '../Components/TopRatedCarCard';
+import Testimonial from './Testimonial';
 
 const HomePage = () => {
     const carData = useLoaderData()
@@ -37,12 +38,12 @@ const HomePage = () => {
             </section>
 
             {/* why rent us */}
-            <section>
+            <section className='mt-[-40px]'>
                 <RentUs></RentUs>
             </section>
 
             {/* top rated cars */}
-            <section className='bg-[#dcdde1] py-16'>
+            <section className='bg-[#dcdde1] py-16 mt-[-40px]'>
                 <div className='mb-10'>
 
                     <h2 className="text-4xl font-bold text-black mb-3 text-center">
@@ -58,6 +59,11 @@ const HomePage = () => {
                         topCar.map(car => <TopRatedCarCard key={car._id} car={car}></TopRatedCarCard>)
                     }
                 </div>
+            </section>
+
+            {/* testimonials */}
+            <section>
+                <Testimonial></Testimonial>
             </section>
 
 
