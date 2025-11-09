@@ -24,15 +24,15 @@ const Card = ({ car }) => {
                     </h2>
 
                     <p class="text-gray-600 mb-1">
-                        <span class="font-medium text-gray-800">Rent:</span> $120 / day
+                        <span class="font-medium text-gray-800">Rent Price:</span> ${car.rent_price} / day
                     </p>
 
-                    <p class="text-gray-600 mb-1">
-                        <span class="font-medium text-gray-800">Type:</span> Sedan
+                    <p class="text-[#2f3640] mb-1">
+                        <span class="font-medium text-gray-800">Model:</span>  {car.category}
                     </p>
 
                     <p class="text-gray-600 mb-3">
-                        <span class="font-medium text-gray-800">Provider:</span> RentWheels
+                        <span class="font-medium text-gray-800">Provider:</span> {car.provider_name}
                     </p>
 
                     <button

@@ -12,14 +12,15 @@
   default: true;
   --color-primary: #3E7B27;
   --color-secondary: #D3D04F;
+  --color-dark: #2d3436;
 }
 
 
-*{
+* {
   font-family: "Roboto", sans-serif;
 }
 
-ul a.active{
-     /* background-color:#EFE3C2; */
-      text-decoration: underline;
+ul a.active {
+  /* background-color:#EFE3C2; */
+  text-decoration: underline;
 }
