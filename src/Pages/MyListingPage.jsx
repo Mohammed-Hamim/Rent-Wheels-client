@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyListingPage = () => {
     const { user } = use(AuthContext)
@@ -23,28 +24,41 @@ const MyListingPage = () => {
 
     // delete car 
     const handleDelete = (id) => {
-        console.log(id)
-        fetch(`http://localhost:3000/all_cars/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount) {
-                    Swal.fire({
-                        title: "Deleted!",
-                        text: "Your car has been deleted.",
-                        icon: "success"
-                    });
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/all_cars/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your car has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingList = myListing.filter(list => list._id !== id)
+                            setMyListing(remainingList)
+                        }
+                    })
+                    .catch(err => {
+                        toast.error(err.message)
+                    })
+            }
+        });
 
 
-                    const remainingList = myListing.filter(list => list._id !== id)
-                    setMyListing(remainingList)
-                }
-            })
-            .catch(err => {
-                toast.error(err.message)
-            })
+
     }
 
     return (
@@ -56,7 +70,7 @@ const MyListingPage = () => {
                 </h2>
 
                 {/* Table Container */}
-                 
+
                 <div className="bg-gray-800 rounded-2xl shadow-lg overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-gray-700">
@@ -86,9 +100,9 @@ const MyListingPage = () => {
                                         </td>
                                         <td className="py-4 px-6 text-center">
                                             <div className="flex justify-center gap-3">
-                                                <button className="px-4 py-2 rounded-lg btn-outline border-2 border-teal-700  hover:bg-teal-300 transition font-semibold text-white">
+                                                <Link to={`/updateCar/${list._id}`} className="px-4 py-2 rounded-lg btn-outline border-2 border-teal-700  hover:bg-teal-300 transition font-semibold text-white">
                                                     Update
-                                                </button>
+                                                </Link>
                                                 <button onClick={() => handleDelete(list._id)} className="px-4 py-2 rounded-lg btn-outline border-2 border-red-500  hover:bg-red-500 transition font-semibold text-white">
                                                     Delete
                                                 </button>

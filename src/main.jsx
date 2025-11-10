@@ -17,6 +17,7 @@ import MyBookings from './Pages/MyBookings'
 import ErrorPage from './Pages/ErrorPage'
 import PrivateRoute from './Route/PrivateRoute'
 import { ToastContainer } from 'react-toastify'
+import UpdateCarPage from './Pages/UpdateCarPage'
 
 
 
@@ -57,10 +58,17 @@ const router = createBrowserRouter([
         element: <BrowseCarPage></BrowseCarPage>
       },
       {
-        path: "/carDetails/:id",
+        path: "carDetails/:id",
         loader: ({ params }) => fetch(`http://localhost:3000/all_cars/${params.id}`),
         element: <PrivateRoute>
           <CarDetails></CarDetails>
+        </PrivateRoute>
+      },
+      {
+        path: "updateCar/:id",
+        loader: ({ params }) => fetch(`http://localhost:3000/all_cars/${params.id}`),
+        element: <PrivateRoute>
+          <UpdateCarPage></UpdateCarPage>
         </PrivateRoute>
       },
       {
