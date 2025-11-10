@@ -31,8 +31,11 @@ const CarDetails = () => {
                                 <p><span className="font-semibold text-white">Rent Price:</span> ${car.rent_price} / day</p>
                                 <p><span className="font-semibold text-white">Location:</span> {car.location}</p>
                                 <p>
-                                    <span className="font-semibold text-white">Status:   <span className='badge mr-2 bg-green-300 text-black'>
-                                        {!car.status ? "Available" : "Booked"}</span> </span>
+                                    <span className="font-semibold  ">Status:
+                                        <span className='m-2'>
+                                            {!car.status ? <span className='badge bg-green-400 text-gray-900'>Available</span> : <span className='bg-red-400 text-gray-900 badge'>{car.status}</span>}</span>
+                                    </span>
+
 
                                 </p>
                             </div>

@@ -3,11 +3,11 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router';
 
 const LoginPage = () => {
-    const {loading, user, setUser, googleSignIn } = use(AuthContext)
+    const {   setUser, googleSignIn } = use(AuthContext)
 
-    const location =useLocation()
-// console.log(user)
-const navigate =useNavigate()
+    const location = useLocation()
+    // console.log(user)
+    const navigate = useNavigate()
 
     // google log in 
     const handleGoogleLogIn = () => {
@@ -24,6 +24,7 @@ const navigate =useNavigate()
             })
     }
 
+    // 
 
 
     return (

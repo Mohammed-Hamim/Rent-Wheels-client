@@ -16,6 +16,7 @@ import CarDetails from './Pages/CarDetails'
 import MyBookings from './Pages/MyBookings'
 import ErrorPage from './Pages/ErrorPage'
 import PrivateRoute from './Route/PrivateRoute'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -77,6 +78,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
+      <ToastContainer />
     </AuthProvider>
   </StrictMode>,
 )

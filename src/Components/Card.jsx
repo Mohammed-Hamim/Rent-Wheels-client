@@ -16,8 +16,10 @@ const Card = ({ car }) => {
                         alt={car.car_name}
                         className="w-full h-52 object-cover"
                     />
-                    <div className="badge bg-teal-400 text-gray-900 font-bold absolute top-2 right-2">
-                        Available
+                    <div className={`  absolute top-2 right-2`}>
+                        {
+                            car?.status ? <span className='bg-red-400 badge text-gray-900 font-bold'>{car.status}</span> : <span className='badge bg-teal-500 text-gray-900 font-bold'>Available</span>
+                        }
                     </div>
                 </div>
 
@@ -40,7 +42,7 @@ const Card = ({ car }) => {
                     </p>
 
                     <Link to={`/carDetails/${car._id}`}
-                     className="w-full btn bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
+                        className="w-full btn bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
                         View Details
                     </Link>
                 </div>

@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.init";
@@ -16,6 +16,11 @@ const AuthProvider = ({ children }) => {
     // google sign in 
     const googleSignIn = () => {
         return signInWithPopup(auth, provider)
+    }
+
+    // crater user with email and pass 
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // function for log out
@@ -41,7 +46,8 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         googleSignIn,
-        LogOut
+        LogOut,
+        createUser
 
     }
 
