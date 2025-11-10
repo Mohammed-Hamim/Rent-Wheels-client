@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router';
 
 const RegistrationPage = () => {
-    const { createUser } = use(AuthContext)
+    const { updateUser, createUser } = use(AuthContext)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -37,9 +37,16 @@ const RegistrationPage = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                navigate(location.state || "/")
+                navigate(location.state || "/") // navigation
+                // update profile
+                if (result.user) {
+                    updateUser({ displayName: name, photoURL: photo })
+                        .then(res => {
+                            console.log(res)
+                        })
+                        .catch(err => console(err.message))
+                }
 
-                
             })
             .catch(err => {
                 console.log(err.message)
