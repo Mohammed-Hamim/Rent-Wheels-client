@@ -1,6 +1,63 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import { data } from 'react-router';
+import Swal from 'sweetalert2';
 
 const AddCarPage = () => {
+    const { user } = use(AuthContext)
+    // console.log(user)
+
+    const handleAddCar = (e) => {
+        e.preventDefault()
+        const neWCar = {
+            car_name: e.target.car_name.value,
+            description: e.target.description.value,
+            category: e.target.category.value,
+            rent_price: e.target.rent_price.value,
+            location: e.target.location.value,
+            image_url: e.target.image_url.value,
+            provider_name: e.target.provider_name.value,
+            provider_email: e.target.provider_email.value,
+            created_date: new Date(),
+
+
+
+        }
+
+        console.log(neWCar)
+
+        // add car to the DB
+        fetch("http://localhost:3000/all_cars", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(neWCar)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your car is added successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                e.target.reset()
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }
+
+
+
+
+
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
@@ -12,7 +69,8 @@ const AddCarPage = () => {
                     </h2>
 
                     {/* Add Car Form */}
-                    <form className="space-y-6">
+                    <form onSubmit={handleAddCar}
+                        className="space-y-6">
 
                         {/* Car Name */}
                         <div>
@@ -83,7 +141,7 @@ const AddCarPage = () => {
 
                         {/* Image URL */}
                         <div>
-                            <label className="block text-gray-300 mb-2 font-medium">Hosted Image URL</label>
+                            <label className="block text-gray-300 mb-2 font-medium">Image URL</label>
                             <input
                                 type="text"
                                 name="image_url"
@@ -100,7 +158,7 @@ const AddCarPage = () => {
                                 <input
                                     type="text"
                                     name="provider_name"
-                                    // value={user?.displayName || "John Doe"}
+                                    defaultValue={user?.displayName}
                                     readOnly
                                     className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-400 border border-gray-600 cursor-not-allowed"
                                 />
@@ -111,7 +169,7 @@ const AddCarPage = () => {
                                 <input
                                     type="email"
                                     name="provider_email"
-                                    // value={user?.email || "example@email.com"}
+                                    defaultValue={user?.email}
                                     readOnly
                                     className="w-full px-4 py-3 rounded-lg bg-gray-700 text-gray-400 border border-gray-600 cursor-not-allowed"
                                 />

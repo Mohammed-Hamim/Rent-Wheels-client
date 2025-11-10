@@ -3,19 +3,27 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from './Loading';
 import { IoCloseSharp } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
     const { user, loading, LogOut } = use(AuthContext)
     console.log("in the nav", user)
     const [show, setShow] = useState(false)
-    console.log(show)
+    // console.log(show)
     const handleLogOut = () => {
         LogOut()
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setShow(false)
-                alert("log out ")
+
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your have logged out successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(err => {
                 console.log(err)
@@ -72,13 +80,13 @@ const Navbar = () => {
                 }
 
 
-                <div className={`h-[200px] rounded-2xl p-4 top-[70px]  absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
+                <div className={`h-[200px] rounded-2xl p-4 top-[70px] min-w-[300px]  absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
                     <div className='flex h-full flex-col justify-center gap-4 items-center relative'>
-                         <span onClick={()=>setShow(false)} className='absolute top-[-10px] right-0'><IoCloseSharp  size={30}/></span>
+                        <span onClick={() => setShow(false)} className='absolute top-[-10px] right-0'><IoCloseSharp size={30} /></span>
                         <h3 className="text-white text-lg font-semibold mt-5 mb-1">
                             {user?.displayName}
                         </h3>
-                        <p className="text-gray-400 text-sm mb-4">
+                        <p className="text-gray-950 text-sm mb-4">
                             {user?.email}
                         </p>
 
