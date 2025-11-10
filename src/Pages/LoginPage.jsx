@@ -3,7 +3,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router';
 
 const LoginPage = () => {
-    const {   setUser, googleSignIn } = use(AuthContext)
+    const { logIn, setUser, googleSignIn } = use(AuthContext)
 
     const location = useLocation()
     // console.log(user)
@@ -24,7 +24,25 @@ const LoginPage = () => {
             })
     }
 
-    // 
+
+    // log in with email and password 
+    const handleLogInWithEmail = (e) => {
+        e.preventDefault()
+        console.log("log in")
+
+        const email = e.target.email.value
+        const password = e.target.password.value
+
+        console.log({ email, password })
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                navigate(location.state || "/")
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }
 
 
     return (
@@ -37,11 +55,13 @@ const LoginPage = () => {
                 </p>
 
                 {/* Login Form */}
-                <form className="space-y-5">
+                <form onSubmit={handleLogInWithEmail}
+                    className="space-y-5">
                     <div>
                         <label className="block text-gray-300 mb-1">Email</label>
                         <input
                             type="email"
+                            name="email"
                             placeholder="Enter your email"
                             className="w-full px-4 py-2 rounded-lg bg-gray-700 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
@@ -51,6 +71,7 @@ const LoginPage = () => {
                         <label className="block text-gray-300 mb-1">Password</label>
                         <input
                             type="password"
+                            name="password"
                             placeholder="Enter your password"
                             className="w-full px-4 py-2 rounded-lg bg-gray-700 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />

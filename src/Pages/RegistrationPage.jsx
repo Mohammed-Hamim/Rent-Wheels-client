@@ -1,11 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router';
 
 const RegistrationPage = () => {
     const { createUser } = use(AuthContext)
 
-
+    const navigate = useNavigate()
+    const location = useLocation()
     // singUP with email and password 
     const handleSingUp = (e) => {
         e.preventDefault()
@@ -33,12 +35,15 @@ const RegistrationPage = () => {
         }
         console.log({ name, email, password, photo })
         createUser(email, password)
-        .then(result =>{
-            console.log(result.user)
-        })
-        .catch(err => {
-            console.log(err.message)
-        })
+            .then(result => {
+                console.log(result.user)
+                navigate(location.state || "/")
+
+                
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
 
     }
 
