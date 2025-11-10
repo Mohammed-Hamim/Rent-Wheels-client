@@ -1,5 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const MyListingPage = () => {
     const { user } = use(AuthContext)
@@ -11,13 +13,39 @@ const MyListingPage = () => {
             fetch(`http://localhost:3000/all_cars?email=${user?.email} `)
                 .then(res => res.json())
                 .then(data => {
-                    console.log("Your bids", data)
                     setMyListing(data)
                 })
                 .catch(err => console.log(err))
         }
 
     }, [user])
+
+
+    // delete car 
+    const handleDelete = (id) => {
+        console.log(id)
+        fetch(`http://localhost:3000/all_cars/${id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your car has been deleted.",
+                        icon: "success"
+                    });
+
+
+                    const remainingList = myListing.filter(list => list._id !== id)
+                    setMyListing(remainingList)
+                }
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+    }
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
@@ -28,6 +56,7 @@ const MyListingPage = () => {
                 </h2>
 
                 {/* Table Container */}
+                 
                 <div className="bg-gray-800 rounded-2xl shadow-lg overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-gray-700">
@@ -52,7 +81,7 @@ const MyListingPage = () => {
                                         <td className="py-4 px-6">${list.rent_price} / day</td>
                                         <td className="py-4 px-6">
                                             <span className={`px-3 py-1 rounded-full text-sm font-medium ${list.status && "bg-red-400 text-white"} bg-green-300 text-gray-900`}>
-                                                {list.status ? `${list.status}`:"Available"}
+                                                {list.status ? `${list.status}` : "Available"}
                                             </span>
                                         </td>
                                         <td className="py-4 px-6 text-center">
@@ -60,7 +89,7 @@ const MyListingPage = () => {
                                                 <button className="px-4 py-2 rounded-lg btn-outline border-2 border-teal-700  hover:bg-teal-300 transition font-semibold text-white">
                                                     Update
                                                 </button>
-                                                <button className="px-4 py-2 rounded-lg btn-outline border-2 border-red-500  hover:bg-red-500 transition font-semibold text-white">
+                                                <button onClick={() => handleDelete(list._id)} className="px-4 py-2 rounded-lg btn-outline border-2 border-red-500  hover:bg-red-500 transition font-semibold text-white">
                                                     Delete
                                                 </button>
                                             </div>
