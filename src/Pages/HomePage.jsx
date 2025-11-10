@@ -26,7 +26,7 @@ const HomePage = () => {
 
 
         <div className='min-h-screen relative bg-gray-900 text-gray-100'>
-            <section className='my-10 relative h-full w-full top-[-105px] z-0'>
+            <section className='my-10 relative h-full w-full top-[-116px] z-0'>
                 <Slider></Slider>
             </section>
 

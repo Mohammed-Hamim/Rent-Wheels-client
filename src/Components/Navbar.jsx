@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Navbar = () => {
+    const { user, loading } = use(AuthContext)
+    console.log("in the nav", user)
 
 
     const links = <>
@@ -38,11 +41,17 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end space-x-4">
+            <div className="navbar-end ">
 
 
-                <Link to='/login' className='btn btn-outline border-teal-900 border-2 hover:text-teal-400'>Log in </Link>
-                <Link to='/register' className='btn bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
+                {
+                    user ? <div className='w-15  h-15 border-3 border-teal-600 rounded-full'>
+                        <img src={user.photoURL} alt={user.displayName} />
+                    </div> : <div className='space-x-4'>
+                        <Link to='/login' className='btn btn-outline border-teal-900 border-2 hover:text-teal-400'>Log in </Link>
+                        <Link to='/register' className='btn bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
+                    </div>
+                }
             </div>
         </div >
     );
