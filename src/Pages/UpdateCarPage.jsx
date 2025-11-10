@@ -1,8 +1,58 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
+import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const UpdateCarPage = () => {
     const car = useLoaderData()
+
+
+
+    const handleUpdateCar = (e) => {
+        e.preventDefault()
+        console.log("update")
+
+
+        const updatedWCar = {
+            car_name: e.target.car_name.value,
+            description: e.target.description.value,
+            category: e.target.category.value,
+            rent_price: e.target.rent_price.value,
+            location: e.target.location.value,
+            image_url: e.target.image_url.value,
+            provider_name: e.target.provider_name.value,
+            provider_email: e.target.provider_email.value,
+        }
+        console.log(updatedWCar)
+
+        // update car data
+        fetch(`http://localhost:3000/update_car/${car._id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedWCar)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your have logged in successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+    }
+
+
+
     // console.log(car)
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-200 flex justify-center items-center py-10 px-6">
@@ -11,7 +61,8 @@ const UpdateCarPage = () => {
                     Update Car Details
                 </h2>
 
-                <form className="space-y-6">
+                <form onSubmit={handleUpdateCar}
+                    className="space-y-6">
                     {/* Car Name */}
                     <div>
                         <label className="block mb-2 text-gray-400 font-medium">
@@ -132,7 +183,7 @@ const UpdateCarPage = () => {
                     {/* Submit Button */}
                     <div className="text-center mt-8">
                         <button
-                            type="button"
+                            type="submit"
                             className="bg-teal-600 hover:bg-teal-500 transition duration-300 px-10 py-3 rounded-xl font-semibold text-white shadow-lg hover:shadow-teal-500/30"
                         >
                             Update Car
