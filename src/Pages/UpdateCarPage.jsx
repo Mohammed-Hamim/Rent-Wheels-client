@@ -40,7 +40,7 @@ const UpdateCarPage = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Your have logged in successfully",
+                        title: "Your car is updated successfully",
                         showConfirmButton: false,
                         timer: 1500
                     });

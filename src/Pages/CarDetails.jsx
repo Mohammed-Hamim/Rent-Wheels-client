@@ -1,9 +1,71 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const CarDetails = () => {
+    const { user } = use(AuthContext)
     const car = useLoaderData()
-    console.log(car)
+    // console.log(car)
+    const [carStatus, setCarStatus] = useState(car?.status)
+    // cons
+
+    // http://localhost:3000/bookings
+    // booking 
+    const handleBooking = () => {
+        const bookingInfo = {
+            car_id: car._id,
+            user_name: user.displayName,
+            user_email: user.email,
+            user_image: user.photoURL,
+            car_name: car.car_name,
+            category: car.category,
+            rent_price: car.rent_price,
+            location: car.location,
+            image_url: car.image_url,
+            booking_date: new Date()
+
+        }
+        fetch('http://localhost:3000/bookings', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    const status = "Booked";
+                    car.status = status //set status instantly in the ui
+
+                    // update booking status to the DB
+                    fetch(`http://localhost:3000/all_cars/${car._id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify({ status })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.modifiedCount) {
+                                Swal.fire({
+                                    position: "top-middle",
+                                    icon: "success",
+                                    title: "Car is booked successfully",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                            }
+                        })
+                }
+            })
+    }
+
+
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
@@ -50,7 +112,9 @@ const CarDetails = () => {
 
                         {/* Book Now Button */}
                         <div className="mt-6">
-                            <button className="w-full bg-primary hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
+                            <button onClick={handleBooking}
+                                disabled={car.status === 'Booked' || car.status === true}
+                                className="w-full bg-primary   hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
                                 Book Now
                             </button>
                         </div>
