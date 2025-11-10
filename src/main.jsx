@@ -15,6 +15,7 @@ import RegistrationPage from './Pages/RegistrationPage'
 import CarDetails from './Pages/CarDetails'
 import MyBookings from './Pages/MyBookings'
 import ErrorPage from './Pages/ErrorPage'
+import PrivateRoute from './Route/PrivateRoute'
 
 
 
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
@@ -33,15 +34,21 @@ const router = createBrowserRouter([
       },
       {
         path: 'add_car',
-        element: <AddCarPage></AddCarPage>
+        element: <PrivateRoute>
+          <AddCarPage></AddCarPage>
+        </PrivateRoute>
       },
       {
         path: 'my_listing',
-        element: <MyListingPage></MyListingPage>
+        element: <PrivateRoute>
+          <MyListingPage></MyListingPage>
+        </PrivateRoute>
       },
       {
         path: 'my_bookings',
-        element: <MyBookings></MyBookings>
+        element: <PrivateRoute>
+          <MyBookings></MyBookings>
+        </PrivateRoute>
       },
       {
         path: 'browse_cars',
@@ -50,8 +57,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/carDetails/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/all_cars/${params.id}`),
-        element: <CarDetails></CarDetails>
+        loader: ({ params }) => fetch(`http://localhost:3000/all_cars/${params.id}`),
+        element: <PrivateRoute>
+          <CarDetails></CarDetails>
+        </PrivateRoute>
       },
       {
         path: 'login',

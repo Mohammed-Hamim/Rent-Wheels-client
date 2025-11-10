@@ -1,10 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router';
 
 const LoginPage = () => {
     const {loading, user, setUser, googleSignIn } = use(AuthContext)
 
-console.log(user)
+    const location =useLocation()
+// console.log(user)
+const navigate =useNavigate()
 
     // google log in 
     const handleGoogleLogIn = () => {
@@ -13,6 +16,8 @@ console.log(user)
             .then(result => {
                 console.log(result)
                 setUser(result.user)
+                navigate(location.state || "/")
+
             })
             .catch(err => {
                 console.log(err)

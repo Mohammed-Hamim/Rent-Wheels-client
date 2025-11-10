@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useLoaderData } from 'react-router';
 import Card from '../Components/Card';
+import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading';
 
 const BrowseCarPage = () => {
 
-const carData = useLoaderData()
+    const carData = useLoaderData()
+    const { loading } = use(AuthContext)
+
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -19,16 +23,19 @@ const carData = useLoaderData()
             </section>
 
             {/* Cars Grid Section */}
-            <section className="container mx-auto px-6 py-12">
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
+            {
+                loading ? <Loading></Loading> : <section className="container mx-auto px-6 py-12">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
 
-                     
-                     {
-                        carData.map(car => <Card key={car._id} car={car}></Card>)
-                     }
 
-                </div>
-            </section>
+                        {
+                            carData.map(car => <Card key={car._id} car={car}></Card>)
+                        }
+
+                    </div>
+                </section>
+            }
+
         </div>
 
     );

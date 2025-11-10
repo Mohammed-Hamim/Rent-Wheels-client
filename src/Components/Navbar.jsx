@@ -1,12 +1,30 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import Loading from './Loading';
+import { IoCloseSharp } from 'react-icons/io5';
 
 
 const Navbar = () => {
-    const { user, loading } = use(AuthContext)
+    const { user, loading, LogOut } = use(AuthContext)
     console.log("in the nav", user)
+    const [show, setShow] = useState(false)
+    console.log(show)
+    const handleLogOut = () => {
+        LogOut()
+            .then(res => {
+                console.log(res)
+                setShow(false)
+                alert("log out ")
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     const links = <>
         <li ><NavLink to="/">Home</NavLink></li>
@@ -41,18 +59,38 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end ">
+            <div className="navbar-end relative">
 
 
                 {
-                    user ? <div className='w-15  h-15 border-3 border-teal-600 rounded-full'>
-                        <img src={user.photoURL} alt={user.displayName} />
+                    user ? <div onClick={() => setShow(!show)} className='w-15  h-15 border-3 border-teal-600 rounded-full'>
+                        <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt={user?.displayName} />
                     </div> : <div className='space-x-4'>
                         <Link to='/login' className='btn btn-outline border-teal-900 border-2 hover:text-teal-400'>Log in </Link>
                         <Link to='/register' className='btn bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
                     </div>
                 }
+
+
+                <div className={`h-[200px] rounded-2xl p-4 top-[70px]  absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
+                    <div className='flex h-full flex-col justify-center gap-4 items-center relative'>
+                         <span onClick={()=>setShow(false)} className='absolute top-[-10px] right-0'><IoCloseSharp  size={30}/></span>
+                        <h3 className="text-white text-lg font-semibold mt-5 mb-1">
+                            {user?.displayName}
+                        </h3>
+                        <p className="text-gray-400 text-sm mb-4">
+                            {user?.email}
+                        </p>
+
+                        <button onClick={handleLogOut}
+                            className="w-full bg-teal-700 hover:bg-teal-600 text-white font-medium py-2 rounded-lg transition duration-200">
+                            Log Out
+                        </button>
+                    </div>
+
+                </div>
             </div>
+
         </div >
     );
 };

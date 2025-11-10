@@ -1,6 +1,12 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 
 const MyBookings = () => {
+const location = useLocation()
+console.log(location)
+
+ 
+
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
