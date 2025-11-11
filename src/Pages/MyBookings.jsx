@@ -3,10 +3,12 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import Loading from '../Components/Loading';
 
 
 const MyBookings = () => {
     const { user } = use(AuthContext)
+    const [loading, setLoading] = useState(true)
     const [myBookings, setMyBookings] = useState([])
     console.log(myBookings)
 
@@ -71,13 +73,20 @@ const MyBookings = () => {
                 .then(data => {
                     console.log(data)
                     setMyBookings(data)
+                    setLoading(false)
                 })
                 .catch(err => {
                     console.log(err.message)
                 })
         }
 
-    }, [user])
+    }, [user, setLoading,])
+
+
+    if (loading) {
+        return <Loading></Loading>
+
+    }
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
@@ -92,7 +101,7 @@ const MyBookings = () => {
                                 <th className="py-4 px-6 font-semibold text-gray-200">Category</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Rent Price</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Location</th>
-                                <th className="py-4 px-6 font-semibold text-gray-200">Action</th>
+                                <th className="py-4  text-center font-semibold   text-gray-200">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -100,12 +109,17 @@ const MyBookings = () => {
                                 myBookings.map(booking =>
 
                                     <tr key={booking._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition">
-                                        <td className="py-4 px-6"><Link to={`/carDetails/${booking.car_id}`}>{booking.car_name}</Link></td>
+                                        <td className="py-4 px-6"> {booking.car_name} </td>
                                         <td className="py-4 px-6">{booking.category}</td>
                                         <td className="py-4 px-6">${booking.rent_price}/ day</td>
                                         <td className="py-4 px-6">{booking.location}</td>
-                                        <td className="py-4 px-6">
-                                            <button onClick={() => handleDeleteBooking(booking._id, booking.car_id)} className="px-3 py-1 bg-red-400 rounded-full text-black text-sm hover:bg-red-500 font-medium">Cancel</button>
+                                        <td className="py-4 flex px-6 justify-center items-center ">
+                                            <div className='flex gap-2 flex-col md:flex-row'>
+                                                <button onClick={() => handleDeleteBooking(booking._id, booking.car_id)} className=" btn-outline border-2 border-red-500  btn text-white text-sm hover:bg-red-500 font-medium">Cancel</button>
+                                                <button className='btn btn-outline border-2 border-green-700 hover:bg-green-900'>
+                                                    <Link to={`/carDetails/${booking.car_id}`}>Details</Link>
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
 

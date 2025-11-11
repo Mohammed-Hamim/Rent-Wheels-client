@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const { logIn, setUser, googleSignIn } = use(AuthContext)
+    const {  logIn, setUser, googleSignIn } = use(AuthContext)
 
     const location = useLocation()
     // console.log(user)

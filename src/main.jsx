@@ -53,8 +53,7 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: 'browse_cars',
-        loader: () => fetch('http://localhost:3000/all_cars'),
+        path: 'browse_cars',       
         element: <BrowseCarPage></BrowseCarPage>
       },
       {

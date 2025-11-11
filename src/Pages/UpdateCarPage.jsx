@@ -173,7 +173,7 @@ const UpdateCarPage = () => {
                     {/* Image Preview */}
                     <div className="mt-6 text-center">
                         <img
-                            src="https://i.ibb.co.com/mFNyyqpx/Tesla-Model-S.jpg"
+                            src={car.image_url}
                             alt="Car preview"
                             className="w-60 h-40 object-cover rounded-xl border border-gray-700 shadow-md mx-auto"
                         />

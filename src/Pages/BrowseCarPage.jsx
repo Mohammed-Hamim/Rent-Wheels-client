@@ -1,13 +1,33 @@
-import React, { use } from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useEffect, useState } from 'react';
+// import { useLoaderData } from 'react-router';
 import Card from '../Components/Card';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loading from '../Components/Loading';
+ 
 
+// loader: () => fetch('http://localhost:3000/all_cars'),
 const BrowseCarPage = () => {
 
-    const carData = useLoaderData()
-    const { loading } = use(AuthContext)
+    // const carData = useLoaderData()
+    const [carData, setCarData] = useState([])
+    const [ loading, setLoading ] = useState(true)
+
+    useEffect(() => {
+        fetch('http://localhost:3000/all_cars')
+            .then(res => res.json())
+            .then(data => {
+                setCarData(data)
+                setLoading(false)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, [setLoading])
+
+
+    if(loading){
+        return <Loading></Loading>
+    }
 
 
     return (
@@ -23,8 +43,7 @@ const BrowseCarPage = () => {
             </section>
 
             {/* Cars Grid Section */}
-            {
-                loading ? <Loading></Loading> : <section className="container mx-auto px-6 py-12">
+             <section className="container mx-auto px-6 py-12">
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
 
 
@@ -34,7 +53,7 @@ const BrowseCarPage = () => {
 
                     </div>
                 </section>
-            }
+            
 
         </div>
 

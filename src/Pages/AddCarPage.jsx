@@ -1,7 +1,8 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import { data } from 'react-router';
+
 import Swal from 'sweetalert2';
+
 
 const AddCarPage = () => {
     const { user } = use(AuthContext)
@@ -53,9 +54,6 @@ const AddCarPage = () => {
             })
 
     }
-
-
-
 
 
     return (

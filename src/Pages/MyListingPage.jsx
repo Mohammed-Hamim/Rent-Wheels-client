@@ -3,9 +3,11 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
+import Loading from '../Components/Loading';
 
 const MyListingPage = () => {
     const { user } = use(AuthContext)
+    const [loading, setLoading]=useState(true)
     const [myListing, setMyListing] = useState([])
 
     useEffect(() => {
@@ -15,12 +17,17 @@ const MyListingPage = () => {
                 .then(res => res.json())
                 .then(data => {
                     setMyListing(data)
+                    setLoading(false)
                 })
                 .catch(err => console.log(err))
         }
 
-    }, [user])
+    }, [user, setLoading])
 
+    if (loading) {
+
+        return <Loading></Loading>
+    }
 
     // delete car 
     const handleDelete = (id) => {

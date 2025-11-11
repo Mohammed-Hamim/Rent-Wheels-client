@@ -4,6 +4,9 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Loading from './Loading';
 import { IoCloseSharp } from 'react-icons/io5';
 import Swal from 'sweetalert2';
+import { MdEmail } from 'react-icons/md';
+import { FaUserAlt } from 'react-icons/fa';
+import { IoIosLogOut } from 'react-icons/io';
 
 
 const Navbar = () => {
@@ -83,16 +86,19 @@ const Navbar = () => {
                 <div className={`h-[200px] rounded-2xl p-4 top-[70px] min-w-[300px]  absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
                     <div className='flex h-full flex-col justify-center gap-4 items-center relative'>
                         <span onClick={() => setShow(false)} className='absolute top-[-10px] right-0'><IoCloseSharp size={30} /></span>
-                        <h3 className="text-white text-lg font-semibold mt-5 mb-1">
+                        <h3 className="text-white flex gap-2 items-center text-lg font-semibold mt-5 mb-1">
+                            <FaUserAlt />
                             {user?.displayName}
                         </h3>
-                        <p className="text-gray-950 text-sm mb-4">
-                            {user?.email}
+                        <p className="text-gray-950 flex gap:2 items-center  text-sm mb-4">
+                            <MdEmail size={20} />:
+                            <span className='ml-1'>{user?.email}</span>
                         </p>
 
                         <button onClick={handleLogOut}
-                            className="w-full bg-teal-700 hover:bg-teal-600 text-white font-medium py-2 rounded-lg transition duration-200">
-                            Log Out
+                            className="w-full bg-teal-700 flex gap-2 items-center justify-center hover:bg-teal-600 text-white font-medium py-2 rounded-lg transition duration-200">
+                            <span>Log Out</span>
+                            <IoIosLogOut size={20} />
                         </button>
                     </div>
 

@@ -1,14 +1,18 @@
 // import React, { useState } from 'react';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import RentUs from '../Components/RentUs';
 import Slider from '../Components/Slider';
 import { useLoaderData } from 'react-router';
 import TopRatedCarCard from '../Components/TopRatedCarCard';
 import Testimonials from '../Components/Testimonials';
+// import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading';
 
 
 const HomePage = () => {
+    // const { loading, setLoading, } = use(AuthContext)
+    const [loading, setLoading,]=useState(true)
     const carData = useLoaderData()
     const [topCar, setTopCar] = useState([])
     console.log(carData)
@@ -19,9 +23,16 @@ const HomePage = () => {
             .then(data => {
                 console.log("top", data)
                 setTopCar(data)
+                setLoading(false)
             })
-    }, [])
+    }, [setLoading])
 
+
+
+
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
 
 
