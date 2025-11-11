@@ -97,6 +97,7 @@ const MyBookings = () => {
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-gray-700">
                             <tr>
+                                <th className="py-4 px-6 font-semibold text-gray-200">SL No.</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Car Name</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Category</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Rent Price</th>
@@ -106,9 +107,10 @@ const MyBookings = () => {
                         </thead>
                         <tbody>
                             {
-                                myBookings.map(booking =>
+                                myBookings.map((booking, index) =>
 
                                     <tr key={booking._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition">
+                                        <td className="py-4 px-6"> {index + 1} </td>
                                         <td className="py-4 px-6"> {booking.car_name} </td>
                                         <td className="py-4 px-6">{booking.category}</td>
                                         <td className="py-4 px-6">${booking.rent_price}/ day</td>
