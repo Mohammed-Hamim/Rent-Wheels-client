@@ -7,7 +7,10 @@ const CarDetails = () => {
     const { user } = use(AuthContext)
     const car = useLoaderData()
     // console.log(car)
-    const [carStatus, setCarStatus] = useState(car?.status)
+    const [carStatus, setCarStatus] = useState(car?.status && car.status !== '' && car.status !== undefined
+        ? car.status
+        : 'Available')
+    console.log(carStatus)
     // cons
 
     // http://localhost:3000/bookings
@@ -38,7 +41,8 @@ const CarDetails = () => {
                 console.log(data)
                 if (data.insertedId) {
                     const status = "Booked";
-                    car.status = status //set status instantly in the ui
+                    setCarStatus(status)
+                    // car.status = status //set status instantly in the ui
 
                     // update booking status to the DB
                     fetch(`http://localhost:3000/all_cars/${car._id}`, {
@@ -53,7 +57,7 @@ const CarDetails = () => {
                             console.log(data)
                             if (data.modifiedCount) {
                                 Swal.fire({
-                                    position: "top-middle",
+                                    position: "top-end",
                                     icon: "success",
                                     title: "Car is booked successfully",
                                     showConfirmButton: false,
@@ -93,12 +97,9 @@ const CarDetails = () => {
                                 <p><span className="font-semibold text-white">Rent Price:</span> ${car.rent_price} / day</p>
                                 <p><span className="font-semibold text-white">Location:</span> {car.location}</p>
                                 <p>
-                                    <span className="font-semibold  ">Status:
-                                        <span className='m-2'>
-                                            {!car.status ? <span className='badge bg-green-400 text-gray-900'>Available</span> : <span className='bg-red-400 text-gray-900 badge'>{car.status}</span>}</span>
+                                    Status: <span className={`${carStatus === "Booked" ? "bg-red-400" : "bg-green-600"} badge`} >
+                                        {carStatus}
                                     </span>
-
-
                                 </p>
                             </div>
 
@@ -113,9 +114,10 @@ const CarDetails = () => {
                         {/* Book Now Button */}
                         <div className="mt-6">
                             <button onClick={handleBooking}
-                                disabled={car.status === 'Booked' || car.status === true}
+                                disabled={carStatus === 'Booked'}
                                 className="w-full bg-primary   hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                Book Now
+                                {carStatus === 'Booked' ? "Already Booked" : "Book Now"}
+
                             </button>
                         </div>
                     </div>

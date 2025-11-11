@@ -7,7 +7,7 @@ import Loading from '../Components/Loading';
 
 const MyListingPage = () => {
     const { user } = use(AuthContext)
-    const [loading, setLoading]=useState(true)
+    const [loading, setLoading] = useState(true)
     const [myListing, setMyListing] = useState([])
 
     useEffect(() => {
@@ -82,6 +82,7 @@ const MyListingPage = () => {
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-gray-700">
                             <tr>
+                                <th className="py-4 px-6 font-semibold text-gray-200">SL No.</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Car Name</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Category</th>
                                 <th className="py-4 px-6 font-semibold text-gray-200">Rent Price</th>
@@ -95,8 +96,9 @@ const MyListingPage = () => {
                         <tbody>
                             {/* Example Row */}
                             {
-                                myListing.map(list =>
+                                myListing.map((list, index) =>
                                     <tr key={list._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition duration-200">
+                                        <td className="py-4 px-6">{index+1}</td>
                                         <td className="py-4 px-6">{list.car_name}</td>
                                         <td className="py-4 px-6">{list.category}</td>
                                         <td className="py-4 px-6">${list.rent_price} / day</td>
