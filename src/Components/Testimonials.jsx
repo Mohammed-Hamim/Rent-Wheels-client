@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Testimonials = () => {
     return (
 
@@ -15,10 +14,12 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Cards Grid */}
-                <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+                <div
+                 
+                 className="grid md:grid-cols-3   sm:grid-cols-2 grid-cols-1 gap-8">
 
                     {/* Testimonial 1 */}
-                    <div className="bg-gray-800 shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+                    <div className="bg-gray-800 shadow-lg hover:scale-105  rounded-2xl p-6 hover:shadow-2xl transition duration-300">
                         <div className="flex items-center mb-4">
                             <img
                                 src="https://i.ibb.co.com/9HdqVyGP/images-q-tbn-ANd9-Gc-TZq-P-dj5-RJPVelv-Q8k-Bp-Nj0hr710-XH8py6u-Q-s.jpg"
@@ -36,7 +37,7 @@ const Testimonials = () => {
                     </div>
 
                     {/* Testimonial 2 */}
-                    <div className="bg-gray-800 shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+                    <div className="bg-gray-800  hover:scale-105 shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
                         <div className="flex items-center mb-4">
                             <img
                                 src="https://i.ibb.co.com/LdWZS3Mk/emma-smith-cbc-reporter.jpg"
@@ -54,7 +55,7 @@ const Testimonials = () => {
                     </div>
 
                     {/* Testimonial 3 */}
-                    <div className="bg-gray-800 shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
+                    <div className="bg-gray-800  hover:scale-105 shadow-lg rounded-2xl p-6 hover:shadow-2xl transition duration-300">
                         <div className="flex items-center mb-4">
                             <img
                                 src="https://i.ibb.co.com/gbRP4jRQ/images-q-tbn-ANd9-Gc-QBbfyz5c-U0ag-Gn-Vb-IZDW6t-JDNROKN1d-GTMg-s.jpg"

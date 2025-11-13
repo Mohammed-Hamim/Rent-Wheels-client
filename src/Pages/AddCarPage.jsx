@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-
+import { motion } from "motion/react"
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
@@ -55,11 +55,21 @@ const AddCarPage = () => {
 
     return (
         
-    <div className="min-h-screen    text-gray-100 py-12">
+    <div className="min-h-screen text-gray-100 py-12">
         <title>Add-Car</title>
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
                 
-                <div className="  bg-gray-900/80 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
+                <motion.div
+                variants={{
+                    hidden: {opacity:0, scale:0},
+                    visible: {opacity: 1, scale:1}
+                }}
+                initial="hidden"
+                animate='visible'
+                transition={{duration: 1, delay: 0.25}}
+
+
+                className="  bg-gray-900/80 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
 
                     {/* Heading */}
                     <h2 className="text-3xl font-bold text-center  text-teal-400 mb-8">
@@ -184,7 +194,7 @@ const AddCarPage = () => {
                             </button>
                         </div>
                     </form>
-                </div>
+                </motion.div>
             </div>
         </div>
 
