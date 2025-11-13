@@ -98,7 +98,7 @@ const MyBookings = () => {
                         <tbody>
                             {
                                 myBookings.map((booking, index) =>
-                                    <tr key={booking._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition">
+                                    <tr key={booking._id} className="border-b text-gray-400 border-gray-700 hover:bg-gray-700/40 transition">
                                         <td className="py-4 px-6"> {index + 1} </td>
                                         <td className="py-4 px-6"> {booking.car_name} </td>
                                         <td className="py-4 px-6">{booking.category}</td>

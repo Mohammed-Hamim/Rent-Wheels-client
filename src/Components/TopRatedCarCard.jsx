@@ -22,7 +22,7 @@ const TopRatedCarCard = ({ car }) => {
                     <p className="text-gray-300 text-sm mb-2">
                         <span className="font-medium text-white">Type:</span> {car.category}
                     </p>
-                    <p className="text-gray-300 text-base mb-3">
+                    <p className="text-gray-400 leading-relaxed text-base mb-3">
                         {car.description}
                     </p>
                     <p className="text-teal-400 font-bold text-lg mb-3">${car.rent_price} / day</p>

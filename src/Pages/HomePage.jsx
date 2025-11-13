@@ -92,7 +92,7 @@ const HomePage = () => {
             <section className='mt-8  rounded-2xl  bg-gray-800 py-16'>
                 <div className="text-center px-4 mb-6 space-y-4">
                     <h1 className="text-4xl text-secondary font-bold">Drive the Latest, Rent the Best</h1>
-                    <p className="text-gray-400 max-w-xl mx-auto">
+                    <p className="text-gray-400 leading-relaxed max-w-xl mx-auto">
                         Find your perfect ride for any journey. Choose from a wide range of luxury, economy, and electric cars.
                     </p>
                     <div className="flex justify-center">

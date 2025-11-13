@@ -91,7 +91,7 @@ const MyListingPage = () => {
                             {/* Row */}
                             {
                                 myListing.map((list, index) =>
-                                    <tr key={list._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition duration-200">
+                                    <tr key={list._id} className="border-b text-gray-400 border-gray-700 hover:bg-gray-700/40 transition duration-200">
                                         <td className="py-4 px-6">{index + 1}</td>
                                         <td className="py-4 px-6">{list.car_name}</td>
                                         <td className="py-4 px-6">{list.category}</td>

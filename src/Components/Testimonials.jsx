@@ -9,7 +9,7 @@ const Testimonials = () => {
                 {/* Section Heading */}
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-bold text-secondary mb-3">What Our Customers Say</h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
                         Hear from our happy clients who enjoyed their rides. Our customers’ satisfaction drives us to deliver the best car rental experience.
                     </p>
                 </div>

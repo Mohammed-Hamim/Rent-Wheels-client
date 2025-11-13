@@ -19,7 +19,7 @@ const RentUs = () => {
                             🚗
                         </div>
                         <h3 className="text-xl font-semibold text-white mb-2">Easy Booking</h3>
-                        <p className="text-gray-300">
+                        <p className="text-gray-400 leading-relaxed">
                             Book your car in just a few clicks with our simple and fast online system.
                         </p>
                     </div>
@@ -30,7 +30,7 @@ const RentUs = () => {
                             💸
                         </div>
                         <h3 className="text-xl font-semibold text-white mb-2">Affordable Rates</h3>
-                        <p className="text-gray-300">
+                        <p className="text-gray-400 leading-relaxed">
                             Enjoy competitive prices with no hidden charges — drive more, spend less.
                         </p>
                     </div>
@@ -41,7 +41,7 @@ const RentUs = () => {
                             🤝
                         </div>
                         <h3 className="text-xl font-semibold text-white mb-2">Trusted Providers</h3>
-                        <p className="text-gray-300">
+                        <p className="text-gray-400 leading-relaxed">
                             Rent from verified and reliable car owners for a worry-free experience.
                         </p>
                     </div>
@@ -52,7 +52,7 @@ const RentUs = () => {
                             ⏰
                         </div>
                         <h3 className="text-xl font-semibold text-white mb-2">24/7 Support</h3>
-                        <p className="text-gray-300">
+                        <p className="text-gray-400 leading-relaxed">
                             Our customer service is available anytime to help you on the road.
                         </p>
                     </div>

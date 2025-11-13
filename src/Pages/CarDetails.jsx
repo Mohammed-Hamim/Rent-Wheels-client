@@ -97,7 +97,7 @@ const CarDetails = () => {
                     <div className="flex-1 flex flex-col justify-between">
                         <div>
                             <h2 className="text-3xl font-bold text-white mb-4">{car.car_name}</h2>
-                            <p className="text-gray-300 mb-4">{car.description}</p>
+                            <p className="text-gray-400 leading-relaxed mb-4">{car.description}</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                 <p><span className="font-semibold text-white">Category:</span> {car.category}</p>
                                 <p><span className="font-semibold text-white">Rent Price:</span> ${car.rent_price} / day</p>
@@ -112,7 +112,7 @@ const CarDetails = () => {
                             {/* Provider Info */}
                             <div className="mt-6 bg-gray-700 p-4 rounded-xl">
                                 <h3 className="text-xl font-semibold text-white mb-2">Provider Information</h3>
-                                <p><span className="font-medium text-white">Name:</span> {car.provider_name}</p>
+                                <p><span className="font-medium text-white"></span> {car.provider_name}</p>
                                 <p><span className="font-medium text-white">Email:</span> {car.provider_email}</p>
                             </div>
                         </div>

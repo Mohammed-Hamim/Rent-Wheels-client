@@ -34,7 +34,7 @@ const BrowseCarPage = () => {
             <section className=" py-12">
                 <div className="container mx-auto px-6 text-center">
                     <h1 className="text-4xl text-secondary font-bold mb-3">Browse Our Cars</h1>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
                         Find the perfect car for your next journey. Premium vehicles, reliable service, and easy booking.
                     </p>
                 </div>
