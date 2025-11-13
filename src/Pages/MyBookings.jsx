@@ -11,11 +11,10 @@ const MyBookings = () => {
     const [loading, setLoading] = useState(true)
     const [myBookings, setMyBookings] = useState([])
 
-
     // handle delete booking
     const handleDeleteBooking = (bookingId, car_id) => {
         // delete booking
-        fetch(`http://localhost:3000/bookings/${bookingId}`, {
+        fetch(`https://rent-wheels-api-server-green.vercel.app/bookings/${bookingId}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -24,7 +23,7 @@ const MyBookings = () => {
                 if (data.deletedCount) {
 
                     // update car status after  delete booking
-                    fetch(`http://localhost:3000/all_cars/${car_id}`, {
+                    fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars/${car_id}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json"
@@ -60,7 +59,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/bookings?email=${user?.email}`)
+            fetch(`https://rent-wheels-api-server-green.vercel.app/bookings?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
 

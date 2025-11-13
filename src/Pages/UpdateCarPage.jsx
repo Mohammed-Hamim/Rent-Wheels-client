@@ -22,7 +22,7 @@ const UpdateCarPage = () => {
         
 
         // update car data
-        fetch(`http://localhost:3000/update_car/${car._id}`, {
+        fetch(`https://rent-wheels-api-server-green.vercel.app/update_car/${car._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

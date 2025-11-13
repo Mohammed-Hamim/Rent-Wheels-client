@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 
 const AddCarPage = () => {
@@ -21,10 +22,10 @@ const AddCarPage = () => {
             provider_email: e.target.provider_email.value,
             created_date: new Date(),
         }
-        console.log(neWCar)
+        
 
         // add car to the DB
-        fetch("http://localhost:3000/all_cars", {
+        fetch("https://rent-wheels-api-server-green.vercel.app/all_cars", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -33,7 +34,7 @@ const AddCarPage = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+               
                 if (data.insertedId) {
                     Swal.fire({
                         position: "top-end",
@@ -46,7 +47,7 @@ const AddCarPage = () => {
                 e.target.reset()
             })
             .catch(err => {
-                console.log(err)
+                toast.error(err)
             })
 
     }

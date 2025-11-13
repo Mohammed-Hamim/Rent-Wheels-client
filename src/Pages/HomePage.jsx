@@ -62,7 +62,7 @@ const HomePage = () => {
 
     // top rated cars 
     useEffect(() => {
-        fetch('http://localhost:3000/top_rated_cars')
+        fetch('https://rent-wheels-api-server-green.vercel.app/top_rated_cars')
             .then(res => res.json())
             .then(data => {
 

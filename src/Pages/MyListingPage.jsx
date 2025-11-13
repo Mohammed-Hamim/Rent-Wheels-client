@@ -12,7 +12,7 @@ const MyListingPage = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/all_cars?email=${user?.email} `)
+            fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars?email=${user?.email} `)
                 .then(res => res.json())
                 .then(data => {
                     setMyListing(data)
@@ -39,7 +39,7 @@ const MyListingPage = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // delete car data
-                fetch(`http://localhost:3000/all_cars/${id}`, {
+                fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

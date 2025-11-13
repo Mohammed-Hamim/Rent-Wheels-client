@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/all_cars'),
+        loader: () => fetch('https://rent-wheels-api-server-green.vercel.app/all_cars'),
         element: <HomePage></HomePage>
       },
       {
@@ -53,19 +53,19 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: 'browse_cars',       
+        path: 'browse_cars',
         element: <BrowseCarPage></BrowseCarPage>
       },
       {
         path: "carDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/all_cars/${params.id}`),
+        loader: ({ params }) => fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars/${params.id}`),
         element: <PrivateRoute>
           <CarDetails></CarDetails>
         </PrivateRoute>
       },
       {
         path: "updateCar/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/all_cars/${params.id}`),
+        loader: ({ params }) => fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars/${params.id}`),
         element: <PrivateRoute>
           <UpdateCarPage></UpdateCarPage>
         </PrivateRoute>

@@ -30,7 +30,7 @@ const CarDetails = () => {
             booking_date: new Date()
 
         }
-        fetch('http://localhost:3000/bookings', {
+        fetch('https://rent-wheels-api-server-green.vercel.app/bookings', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -45,7 +45,7 @@ const CarDetails = () => {
                     setCarStatus(status)
 
                     // update booking status to the DB
-                    fetch(`http://localhost:3000/all_cars/${car._id}`, {
+                    fetch(`https://rent-wheels-api-server-green.vercel.app/all_cars/${car._id}`, {
                         method: "PATCH",
                         headers: {
                             "content-type": "application/json"
@@ -121,7 +121,7 @@ const CarDetails = () => {
                             <button onClick={handleBooking}
                                 disabled={carStatus === 'Booked'}
                                 className="w-full custom-btn ">
-                                {carStatus === 'Booked' ? "Already Booked" : "Book Now"}
+                                {carStatus === 'Booked' ? "Booked" : "Book Now"}
                             </button>
                         </div>
                     </div>

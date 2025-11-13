@@ -12,7 +12,7 @@ const BrowseCarPage = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:3000/all_cars')
+        fetch('https://rent-wheels-api-server-green.vercel.app/all_cars')
             .then(res => res.json())
             .then(data => {
                 setCarData(data)
