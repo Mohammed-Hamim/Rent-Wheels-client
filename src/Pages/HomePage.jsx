@@ -1,5 +1,5 @@
 
-import { useEffect,   useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import RentUs from '../Components/RentUs';
 import Slider from '../Components/Slider';
@@ -16,7 +16,7 @@ const HomePage = () => {
     const [loading, setLoading] = useState(true)
     const cars = useLoaderData()
     const [latestCars, setLatestCars] = useState()
-    
+
     const [topRatedCar, setTopRatedCar] = useState([])
     const [searching, setSearching] = useState(false)
     const [searched, setSearched] = useState('')// state for filtering
@@ -24,7 +24,7 @@ const HomePage = () => {
 
     // filter latest cars 
     useEffect(() => {
-        const latestCar = cars
+        const latestCar = [...cars]
             .sort((a, b) => new Date(b.created_date) - new Date(a.created_date))
             .slice(0, 6);
         setLatestCars(latestCar);
@@ -81,7 +81,7 @@ const HomePage = () => {
 
 
         <div className='min-h-screen mx-auto relative text-gray-100'>
-
+<title>Home</title>
             {/* slider */}
             <section className='relative my-10 bg-gray-900/90  shadow-2xl  w-full  rounded-xl'>
                 <Slider></Slider>
@@ -90,7 +90,7 @@ const HomePage = () => {
 
             {/* newest car  */}
             <section className='mt-8  rounded-2xl  bg-gray-800 py-16'>
-                <div className="text-center mb-6 space-y-4">
+                <div className="text-center px-4 mb-6 space-y-4">
                     <h1 className="text-4xl text-secondary font-bold">Drive the Latest, Rent the Best</h1>
                     <p className="text-gray-400 max-w-xl mx-auto">
                         Find your perfect ride for any journey. Choose from a wide range of luxury, economy, and electric cars.
@@ -106,7 +106,7 @@ const HomePage = () => {
 
                                 placeholder="Search cars by name..."
 
-                                className="w-96 px-4 py-2 rounded-xl bg-gray-800 border border-gray-600 focus:outline-none    text-gray-200"
+                                className=" md:w-96 px-4 py-2 rounded-xl bg-gray-800 border border-gray-600 focus:outline-none    text-gray-200"
                             />
                             <button className=' text-center absolute right-2 my-2 text-teal-300'>
                                 <CiSearch size={30} />

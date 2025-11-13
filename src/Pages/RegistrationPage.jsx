@@ -89,6 +89,7 @@ const RegistrationPage = () => {
 
     return (
         <div className="min-h-screen py-10 flex items-center justify-center  text-gray-100 px-4">
+            <title>Sign-Up</title>
             <div className="bg-gray-950/50 p-8 rounded-2xl shadow-sm w-full max-w-md">
                 {/* Header */}
                 <h2 className="text-3xl font-bold text-center mb-2">

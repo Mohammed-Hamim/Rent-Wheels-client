@@ -54,8 +54,11 @@ const AddCarPage = () => {
 
 
     return (
-        <div className="min-h-screen    text-gray-100 py-12">
+        
+    <div className="min-h-screen    text-gray-100 py-12">
+        <title>Add-Car</title>
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
+                
                 <div className="  bg-gray-900/80 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
 
                     {/* Heading */}

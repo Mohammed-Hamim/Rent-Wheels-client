@@ -29,6 +29,7 @@ const BrowseCarPage = () => {
 
     return (
         <div className="min-h-screen  text-gray-100">
+            <title>Browse-cars</title>
             {/* Banner Section */}
             <section className=" py-12">
                 <div className="container mx-auto px-6 text-center">

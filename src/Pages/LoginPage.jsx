@@ -60,6 +60,7 @@ const LoginPage = () => {
 
     return (
         <div className=" flex items-center py-10 justify-center px-4">
+            <title>Log-in</title>
             <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
                 {/* Header */}
                 <h2 className="text-3xl font-bold text-center mb-2  ">

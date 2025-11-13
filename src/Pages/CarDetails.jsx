@@ -78,6 +78,7 @@ const CarDetails = () => {
 
     return (
         <div className="min-h-screen  text-gray-100 py-12">
+             <title>Car-Details</title>
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
 
                 {/* Car Details Container */}

@@ -51,6 +51,7 @@ const UpdateCarPage = () => {
 
     return (
         <div className="min-h-screen   text-gray-200 flex justify-center items-center py-10 px-6">
+            <title>Update-Car</title>
             <div className="w-full max-w-3xl bg-gray-900/80 backdrop-blur-md border border-gray-800 rounded-2xl shadow-2xl p-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-teal-400">
                     Update Car Details
