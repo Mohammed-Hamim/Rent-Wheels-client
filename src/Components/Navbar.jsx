@@ -76,9 +76,9 @@ const Navbar = () => {
                 {
                     user ? <div onClick={() => setShow(!show)} className='w-15  h-15 border-3 border-teal-600 rounded-full'>
                         <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt={user?.displayName} />
-                    </div> : <div className='space-x-4'>
-                        <Link to='/login' className='btn btn-outline border-teal-900 border-2 hover:text-teal-400'>Log in </Link>
-                        <Link to='/register' className='btn bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
+                    </div> : <div className='space-x-4  '>
+                        <Link to='/login' className='btn btn-outline border-teal-900 border-2 py-2.5 px-5 hover:text-teal-400 hidden md:inline'>Log in </Link>
+                        <Link to='/register' className='btn  bg-teal-600 border-0 hover:text-teal-400'>Sing Up</Link>
                     </div>
                 }
 
