@@ -1,16 +1,47 @@
-# React + Vite
+ # Rent Wheels 🚗
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [https://rent-wheels-f0e08.web.app/](https://rent-wheels-f0e08.web.app/)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Rent Wheels is a modern and user-friendly car rental web application designed to make renting cars simple, fast, and convenient. Users can explore a wide variety of cars, view details and ratings, and book their preferred vehicle in just a few clicks. The website combines sleek design, smooth animations, and interactive features to provide an engaging user experience. Built with modern frontend and backend technologies, Rent Wheels ensures responsive performance across all devices.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features ✨
 
-## Expanding the ESLint configuration
+- **Responsive Slider Banner:** Interactive Swiper slider with animated typewriter headings highlighting featured cars.
+- **Car Listings:** Browse available cars with images, descriptions, and rental details.
+- **Booking System:** Users can book cars directly through the website.
+- **Testimonials & Ratings:** Showcase top-rated cars and customer reviews.
+- **Smooth Animations:** Motion effects for images and components enhance user experience.
+- **Dark & Light Theme Friendly:** Modern color schemes using Tailwind CSS and DaisyUI components.
+- **Icon Integration:** React Icons library provides clear, visually appealing UI icons.
+- **Dynamic Frontend:** Built with React, Vite, and JavaScript for a fast, interactive experience.
+- **Typewriter Effect:** Dynamic headings with `react-simple-typewriter` for attractive text animations.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack 🛠️
+
+**Frontend:**
+- React (Vite)
+- JavaScript
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- Motion React
+- React Simple Typewriter
+
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB (database)
+
+---
+
+## Getting Started 🚀
+
+1. **Clone the repository**
+```bash
+git clone <your-repo-url>
