@@ -3,7 +3,6 @@ import React, { use } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
-
 // Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,6 +10,7 @@ import "swiper/css/pagination";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import Reveal from "../animation/Reveal";
 import { motion } from "motion/react"
+import HeroType from "../animation/HeroType";
 // load data
 const slideDataPromise = fetch('/sliderData.json').then(res => res.json());
 
@@ -41,9 +41,9 @@ const Slider = () => {
                                 {/* Left Content */}
                                 <div className="w-full md:w-1/2 space-y-6">
                                     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                                        <span className="bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
-                                            {slide.title}
-                                        </span>
+                                        <HeroType title={slide.title}>
+
+                                        </HeroType>
                                     </h1>
                                     <p className="text-gray-400 leading-relaxed text-lg max-w-md">
                                         {slide.description}
@@ -58,9 +58,9 @@ const Slider = () => {
                                 {/* Right Image */}
                                 <div className="w-full  md:w-1/2 flex justify-center mb-10 md:mb-0">
                                     <motion.img
-                                    initial={{opacity: 0 ,scale: 0}}
-                                    animate={{opacity: 1 , scale:1}}
-                                    transition={{duration: 0.5, delay: 0.5}}
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.5 }}
                                         src={slide.image}
                                         alt="Car"
                                         className="w-full  h-[300px]    md:h-[400px] drop-shadow-2xl animate-float"

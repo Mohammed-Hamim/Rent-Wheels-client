@@ -1,4 +1,5 @@
 import React from 'react';
+import Reveal from '../animation/Reveal';
 
 const RentUs = () => {
     return (
@@ -14,48 +15,60 @@ const RentUs = () => {
                 {/* Cards Grid */}
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Card 1 */}
-                    <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
-                        <div className="text-teal-400 text-4xl mb-4">
-                            🚗
+                    <Reveal>
+                        <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
+                            <div className="text-teal-400 text-4xl mb-4">
+                                🚗
+                            </div>
+                            <h3 className="text-xl font-semibold text-white mb-2">Easy Booking</h3>
+                            <p className="text-gray-400 leading-relaxed">
+                                Book your car in just a few clicks with our simple and fast online system.
+                            </p>
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-2">Easy Booking</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            Book your car in just a few clicks with our simple and fast online system.
-                        </p>
-                    </div>
+                    </Reveal>
+
 
                     {/* Card 2 */}
-                    <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
-                        <div className="text-green-400 text-4xl mb-4">
-                            💸
+                    <Reveal>
+                        <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
+                            <div className="text-green-400 text-4xl mb-4">
+                                💸
+                            </div>
+                            <h3 className="text-xl font-semibold text-white mb-2">Affordable Rates</h3>
+                            <p className="text-gray-400 leading-relaxed">
+                                Enjoy competitive prices with no hidden charges — drive more, spend less.
+                            </p>
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-2">Affordable Rates</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            Enjoy competitive prices with no hidden charges — drive more, spend less.
-                        </p>
-                    </div>
+                    </Reveal>
+
 
                     {/* Card 3 */}
-                    <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
-                        <div className="text-yellow-400 text-4xl mb-4">
-                            🤝
+                    <Reveal>
+                        <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
+                            <div className="text-yellow-400 text-4xl mb-4">
+                                🤝
+                            </div>
+                            <h3 className="text-xl font-semibold text-white mb-2">Trusted Providers</h3>
+                            <p className="text-gray-400 leading-relaxed">
+                                Rent from verified and reliable car owners for a worry-free experience.
+                            </p>
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-2">Trusted Providers</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            Rent from verified and reliable car owners for a worry-free experience.
-                        </p>
-                    </div>
+                    </Reveal>
+
 
                     {/* Card 4 */}
-                    <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
-                        <div className="text-red-400 text-4xl mb-4">
-                            ⏰
+                    <Reveal>
+                        <div className="bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition p-6">
+                            <div className="text-red-400 text-4xl mb-4">
+                                ⏰
+                            </div>
+                            <h3 className="text-xl font-semibold text-white mb-2">24/7 Support</h3>
+                            <p className="text-gray-400 leading-relaxed">
+                                Our customer service is available anytime to help you on the road.
+                            </p>
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-2">24/7 Support</h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            Our customer service is available anytime to help you on the road.
-                        </p>
-                    </div>
+                    </Reveal>
+
                 </div>
             </div>
         </div>
