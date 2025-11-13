@@ -32,9 +32,6 @@ const TopRatedCarCard = ({ car }) => {
                 </div>
             </div>
         </div>
-
-
-       
     );
 };
 

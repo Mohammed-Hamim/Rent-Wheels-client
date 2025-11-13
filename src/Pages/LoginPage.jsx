@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const {  logIn, setUser, googleSignIn } = use(AuthContext)
+    const { logIn, setUser, googleSignIn } = use(AuthContext)
 
     const location = useLocation()
     // console.log(user)
@@ -13,7 +13,6 @@ const LoginPage = () => {
 
     // google log in 
     const handleGoogleLogIn = () => {
-
         googleSignIn()
             .then(result => {
                 setUser(result.user)
@@ -25,7 +24,6 @@ const LoginPage = () => {
                     timer: 1500
                 });
                 navigate(location.state || "/")
-
             })
             .catch(err => {
                 toast.error(err.message)
@@ -52,7 +50,6 @@ const LoginPage = () => {
                         timer: 1500
                     });
                 }
-
                 navigate(location.state || "/")
             })
             .catch(err => {
@@ -62,10 +59,14 @@ const LoginPage = () => {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 text-gray-100 px-4">
+        <div className=" flex items-center py-10 justify-center px-4">
             <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
                 {/* Header */}
-                <h2 className="text-3xl font-bold text-center mb-2">Welcome Back</h2>
+                <h2 className="text-3xl font-bold text-center mb-2  ">
+                    <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                        Welcome Back
+                    </span>
+                </h2>
                 <p className="text-gray-400 text-center mb-8">
                     Login to continue your RentWheels journey
                 </p>
@@ -121,7 +122,6 @@ const LoginPage = () => {
                 </p>
             </div>
         </div>
-
     );
 };
 

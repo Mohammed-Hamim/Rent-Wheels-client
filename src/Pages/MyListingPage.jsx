@@ -11,7 +11,6 @@ const MyListingPage = () => {
     const [myListing, setMyListing] = useState([])
 
     useEffect(() => {
-
         if (user?.email) {
             fetch(`http://localhost:3000/all_cars?email=${user?.email} `)
                 .then(res => res.json())
@@ -21,17 +20,14 @@ const MyListingPage = () => {
                 })
                 .catch(err => console.log(err))
         }
-
     }, [user, setLoading])
 
     if (loading) {
-
         return <Loading></Loading>
     }
 
     // delete car 
     const handleDelete = (id) => {
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -42,12 +38,13 @@ const MyListingPage = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
+                // delete car data
                 fetch(`http://localhost:3000/all_cars/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                      
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -63,21 +60,17 @@ const MyListingPage = () => {
                     })
             }
         });
-
-
-
     }
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
+        <div className="md:min-h-screen   py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
                 {/* Header */}
-                <h2 className="text-3xl font-bold text-center mb-10 text-white">
+                <h2 className="text-3xl font-bold text-center mb-10 text-secondary">
                     My Car Listings
                 </h2>
 
                 {/* Table Container */}
-
                 <div className="bg-gray-800 rounded-2xl shadow-lg overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-gray-700">
@@ -94,11 +87,11 @@ const MyListingPage = () => {
                         </thead>
 
                         <tbody>
-                            {/* Example Row */}
+                            {/* Row */}
                             {
                                 myListing.map((list, index) =>
                                     <tr key={list._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition duration-200">
-                                        <td className="py-4 px-6">{index+1}</td>
+                                        <td className="py-4 px-6">{index + 1}</td>
                                         <td className="py-4 px-6">{list.car_name}</td>
                                         <td className="py-4 px-6">{list.category}</td>
                                         <td className="py-4 px-6">${list.rent_price} / day</td>
@@ -118,7 +111,6 @@ const MyListingPage = () => {
                                             </div>
                                         </td>
                                     </tr>
-
                                 )
                             }
                         </tbody>

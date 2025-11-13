@@ -7,10 +7,10 @@ import Footer from '../Components/Footer';
 const MainLayout = () => {
     return (
         <>
-            <header className='container relative z-10  mx-auto '>
+            <header className=' relative  mx-auto bg-gray-950/80  '>
                 <Navbar></Navbar>
             </header>
-            <main className=' min-h-screen '>
+            <main className=' md:min-h-screen container mx-auto'>
                 <Outlet></Outlet>
             </main>
             <footer>

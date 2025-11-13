@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ErrorPage = () => {
     return (
@@ -12,12 +13,12 @@ const ErrorPage = () => {
                     The page you’re looking for doesn’t exist or has been moved.
                     Don’t worry — let’s get you back on the road.
                 </p>
-                <a
-                    href="/"
-                    className="inline-block bg-teal-600 hover:bg-teal-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+                <Link
+                    to="/"
+                    className="btn bg-teal-600 hover:bg-teal-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
                 >
                     ⬅ Back to Home
-                </a>
+                </Link>
             </div>
         </div>
 

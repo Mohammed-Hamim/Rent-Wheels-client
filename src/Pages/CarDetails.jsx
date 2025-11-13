@@ -2,18 +2,19 @@ import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const CarDetails = () => {
     const { user } = use(AuthContext)
     const car = useLoaderData()
-    // console.log(car)
+
     const [carStatus, setCarStatus] = useState(car?.status && car.status !== '' && car.status !== undefined
         ? car.status
         : 'Available')
-    console.log(carStatus)
-    // cons
 
-    // http://localhost:3000/bookings
+
+
+
     // booking 
     const handleBooking = () => {
         const bookingInfo = {
@@ -38,11 +39,10 @@ const CarDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 if (data.insertedId) {
                     const status = "Booked";
                     setCarStatus(status)
-                    // car.status = status //set status instantly in the ui
 
                     // update booking status to the DB
                     fetch(`http://localhost:3000/all_cars/${car._id}`, {
@@ -54,7 +54,7 @@ const CarDetails = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
+
                             if (data.modifiedCount) {
                                 Swal.fire({
                                     position: "top-end",
@@ -65,13 +65,19 @@ const CarDetails = () => {
                                 });
                             }
                         })
+                        .catch(err => {
+                            toast.error(err.message)
+                        })
                 }
+            })
+            .catch(err => {
+                toast.error(err.message)
             })
     }
 
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
+        <div className="min-h-screen  text-gray-100 py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
 
                 {/* Car Details Container */}
@@ -91,7 +97,6 @@ const CarDetails = () => {
                         <div>
                             <h2 className="text-3xl font-bold text-white mb-4">{car.car_name}</h2>
                             <p className="text-gray-300 mb-4">{car.description}</p>
-
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                 <p><span className="font-semibold text-white">Category:</span> {car.category}</p>
                                 <p><span className="font-semibold text-white">Rent Price:</span> ${car.rent_price} / day</p>
@@ -115,16 +120,14 @@ const CarDetails = () => {
                         <div className="mt-6">
                             <button onClick={handleBooking}
                                 disabled={carStatus === 'Booked'}
-                                className="w-full bg-primary   hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
+                                className="w-full custom-btn ">
                                 {carStatus === 'Booked' ? "Already Booked" : "Book Now"}
-
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 

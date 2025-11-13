@@ -11,16 +11,21 @@
   name: "dark";
   default: true;
   --color-primary: #3E7B27;
-  --color-secondary: #D3D04F;
+  --color-secondary: #00A898;
   --color-dark: #2d3436;
 }
 
+/* */
 
 * {
   font-family: "Roboto", sans-serif;
 }
 
+.custom-btn {
+  @apply mt-4 bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800 text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300
+}
+
 ul a.active {
-  /* background-color:#EFE3C2; */
+
   text-decoration: underline;
 }

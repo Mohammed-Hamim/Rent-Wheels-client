@@ -11,7 +11,7 @@ import { IoIosLogOut } from 'react-icons/io';
 
 const Navbar = () => {
     const { user, loading, LogOut } = use(AuthContext)
-    console.log("in the nav", user)
+
     const [show, setShow] = useState(false)
     // console.log(show)
     const handleLogOut = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar  container mx-auto    bg-transparent">
+        <div className="navbar container   mx-auto ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu bg-gray-800 menu-sm dropdown-content font-bold rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu text-gray-200 bg-gray-800 menu-sm dropdown-content font-bold rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {
                             links
                         }
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <a className="font-bold text-primary md:text-3xl text-xl">RENTWHEELS</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal font-bold text-white tracking-wider px-1">
+                <ul className="menu menu-horizontal font-bold text-gray-200 tracking-wider px-1">
                     {
                         links
                     }
@@ -83,7 +83,7 @@ const Navbar = () => {
                 }
 
 
-                <div className={`h-[200px] rounded-2xl p-4 top-[70px] min-w-[300px]  absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
+                <div className={`h-[200px] rounded-2xl p-4 top-[70px] min-w-[300px] z-100 absolute bg-gray-500 ${show ? "opacity-100" : "opacity-0"} duration-1000`}>
                     <div className='flex h-full flex-col justify-center gap-4 items-center relative'>
                         <span onClick={() => setShow(false)} className='absolute top-[-10px] right-0'><IoCloseSharp size={30} /></span>
                         <h3 className="text-white flex gap-2 items-center text-lg font-semibold mt-5 mb-1">

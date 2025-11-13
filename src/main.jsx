@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/newest-cars'),
+        loader: () => fetch('http://localhost:3000/all_cars'),
         element: <HomePage></HomePage>
       },
       {

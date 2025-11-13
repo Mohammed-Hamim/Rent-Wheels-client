@@ -10,19 +10,17 @@ const MyBookings = () => {
     const { user } = use(AuthContext)
     const [loading, setLoading] = useState(true)
     const [myBookings, setMyBookings] = useState([])
-    console.log(myBookings)
+
 
     // handle delete booking
     const handleDeleteBooking = (bookingId, car_id) => {
-        console.log("delete", { bookingId, car_id })
-
         // delete booking
         fetch(`http://localhost:3000/bookings/${bookingId}`, {
             method: "DELETE"
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data.deletedCount)
+
                 if (data.deletedCount) {
 
                     // update car status after  delete booking
@@ -35,11 +33,9 @@ const MyBookings = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
                             if (data.modifiedCount) {
-
                                 Swal.fire({
-                                    position: "top-middle",
+                                    
                                     icon: "success",
                                     title: "Booking is deleted successfully",
                                     showConfirmButton: false,
@@ -56,42 +52,36 @@ const MyBookings = () => {
             })
             .catch(err => {
                 toast.error(err.message)
-                console.log(err)
+
             })
-
-
-
-
     }
 
-    // http://localhost:3000/bookings?email=abul@babul.com
+
 
     useEffect(() => {
         if (user?.email) {
             fetch(`http://localhost:3000/bookings?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+
                     setMyBookings(data)
                     setLoading(false)
                 })
                 .catch(err => {
-                    console.log(err.message)
+                    toast.error(err.message)
                 })
         }
-
     }, [user, setLoading,])
 
 
     if (loading) {
         return <Loading></Loading>
-
     }
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
+        <div className="md:min-h-screen  py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                <h2 className="text-3xl font-bold text-center mb-10 text-white">My Bookings</h2>
+                <h2 className="text-3xl font-bold text-center mb-10 text-secondary">My Bookings</h2>
 
                 <div className="bg-gray-800 rounded-2xl shadow-lg overflow-x-auto">
                     <table className="w-full text-left border-collapse">
@@ -108,7 +98,6 @@ const MyBookings = () => {
                         <tbody>
                             {
                                 myBookings.map((booking, index) =>
-
                                     <tr key={booking._id} className="border-b border-gray-700 hover:bg-gray-700/40 transition">
                                         <td className="py-4 px-6"> {index + 1} </td>
                                         <td className="py-4 px-6"> {booking.car_name} </td>
@@ -127,13 +116,11 @@ const MyBookings = () => {
 
                                 )
                             }
-
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
     );
 };
 

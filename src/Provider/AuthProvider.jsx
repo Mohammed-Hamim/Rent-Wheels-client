@@ -64,7 +64,6 @@ const AuthProvider = ({ children }) => {
         createUser,
         logIn,
         updateUser
-
     }
 
     return <AuthContext value={authInfo}>{children}</AuthContext>

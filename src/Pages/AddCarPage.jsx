@@ -20,11 +20,7 @@ const AddCarPage = () => {
             provider_name: e.target.provider_name.value,
             provider_email: e.target.provider_email.value,
             created_date: new Date(),
-
-
-
         }
-
         console.log(neWCar)
 
         // add car to the DB
@@ -57,12 +53,12 @@ const AddCarPage = () => {
 
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-100 py-12">
+        <div className="min-h-screen    text-gray-100 py-12">
             <div className="container mx-auto px-4 md:px-8 lg:px-16">
-                <div className="bg-gray-800 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
+                <div className="  bg-gray-900/80 rounded-2xl shadow-lg p-8 max-w-3xl mx-auto">
 
                     {/* Heading */}
-                    <h2 className="text-3xl font-bold text-center text-white mb-8">
+                    <h2 className="text-3xl font-bold text-center  text-teal-400 mb-8">
                         Add a New Car
                     </h2>
 
@@ -178,7 +174,7 @@ const AddCarPage = () => {
                         <div className="pt-6">
                             <button
                                 type="submit"
-                                className="w-full bg-teal-600 hover:bg-teal-500 text-white font-semibold py-3 rounded-lg transition duration-300"
+                                className="w-full custom-btn"
                             >
                                 Add Car
                             </button>

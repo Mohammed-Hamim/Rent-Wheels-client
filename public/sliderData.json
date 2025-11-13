@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Drive the Future with Tesla Model S",
+        "image": "https://i.ibb.co.com/zT28C2vp/tesla-model-s-plaid-2-removebg-preview.png",
+        "description": "Experience the perfect blend of speed, silence, and sustainability. The Tesla Model S redefines luxury electric driving.",
+        "buttonText": "Rent Now"
+    },
+    {
+        "title": "Unleash Power with BMW M4 Coupe",
+        "image": "https://i.ibb.co.com/ksjk6vqk/cc-2024-BMC640024-01-1280-C57.png",
+        "description": "Feel the raw power and precision engineering of BMW’s legendary M series. Born to dominate every road with style.",
+        "buttonText": "Book Your Ride"
+    },
+    {
+        "title": "Luxury Meets Comfort — Mercedes-Benz E-Class",
+        "image": "https://i.ibb.co.com/HQxXWmB/2025-Mercedes-Benz-CLE-CLE-300-W1-KMJ4-HBXSF048350-firstlooksolutionsfeed-W1-KMJ4-HBXSF048350-16048.png",
+        "description": "Sophistication, comfort, and performance in one stunning package. The E-Class is your gateway to refined driving.",
+        "buttonText": "Explore More"
+    },
+    {
+        "title": "Adventure Awaits — Range Rover Sport",
+        "image": "https://i.ibb.co.com/gMwY86zT/2025-Land-Rover-Range-Rover-Velar-Dynamic-SE-white.png",
+        "description": "Take command of every terrain with the Range Rover Sport — where off-road capability meets urban luxury.",
+        "buttonText": "Start Journey"
+    }
+]

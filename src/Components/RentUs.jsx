@@ -4,10 +4,10 @@ const RentUs = () => {
     return (
 
 
-        <div className="bg-gray-900 my-10 py-16">
+        <div className="bg-gray-900 rounded-2xl  my-10 py-16">
             <div className="container mx-auto px-4 text-center">
                 {/* Section Heading */}
-                <h2 className="text-3xl font-bold text-white mb-10">
+                <h2 className="text-3xl font-bold text-secondary mb-10">
                     Why Rent With Us
                 </h2>
 

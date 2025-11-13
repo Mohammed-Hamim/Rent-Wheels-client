@@ -9,6 +9,8 @@ const RegistrationPage = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
+
+    
     // singUP with email and password 
     const handleSingUp = (e) => {
         e.preventDefault()
@@ -34,7 +36,7 @@ const RegistrationPage = () => {
             toast.error("Password length must be longer than 6 character")
             return
         }
-        // console.log({ name, email, password, photo })
+       
         createUser(email, password)
             .then(result => {
                 // console.log(result.user)
@@ -56,19 +58,16 @@ const RegistrationPage = () => {
                             toast.error(err.message)
                         })
                 }
-
             })
             .catch(err => {
                 // console.log(err.message)
                 toast.error(err.message)
             })
-
     }
 
 
     // google log in 
     const handleGoogleLogIn = () => {
-
         googleSignIn()
             .then(result => {
                 // console.log(result)
@@ -81,7 +80,6 @@ const RegistrationPage = () => {
                     timer: 1500
                 });
                 navigate(location.state || "/")
-
             })
             .catch(err => {
                 toast.error(err.message)
@@ -90,10 +88,13 @@ const RegistrationPage = () => {
 
 
     return (
-        <div className="min-h-screen py-10 flex items-center justify-center bg-gray-900 text-gray-100 px-4">
-            <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <div className="min-h-screen py-10 flex items-center justify-center  text-gray-100 px-4">
+            <div className="bg-gray-950/50 p-8 rounded-2xl shadow-sm w-full max-w-md">
                 {/* Header */}
-                <h2 className="text-3xl font-bold text-center mb-2">Create an Account</h2>
+                <h2 className="text-3xl font-bold text-center mb-2">
+                    <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+                        Create an Account
+                    </span></h2>
                 <p className="text-gray-400 text-center mb-8">
                     Join RentWheels and start your journey today
                 </p>

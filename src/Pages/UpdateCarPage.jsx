@@ -6,13 +6,9 @@ import Swal from 'sweetalert2';
 const UpdateCarPage = () => {
     const car = useLoaderData()
 
-
-
     const handleUpdateCar = (e) => {
         e.preventDefault()
-        console.log("update")
-
-
+        // console.log("update")
         const updatedWCar = {
             car_name: e.target.car_name.value,
             description: e.target.description.value,
@@ -23,7 +19,7 @@ const UpdateCarPage = () => {
             provider_name: e.target.provider_name.value,
             provider_email: e.target.provider_email.value,
         }
-        console.log(updatedWCar)
+        
 
         // update car data
         fetch(`http://localhost:3000/update_car/${car._id}`, {
@@ -53,9 +49,8 @@ const UpdateCarPage = () => {
 
 
 
-    // console.log(car)
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-200 flex justify-center items-center py-10 px-6">
+        <div className="min-h-screen   text-gray-200 flex justify-center items-center py-10 px-6">
             <div className="w-full max-w-3xl bg-gray-900/80 backdrop-blur-md border border-gray-800 rounded-2xl shadow-2xl p-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-teal-400">
                     Update Car Details
@@ -83,7 +78,6 @@ const UpdateCarPage = () => {
                         </label>
                         <textarea
                             name='description'
-
                             defaultValue={car.description
                             }
                             className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-gray-100 h-28 focus:outline-none focus:ring-2 focus:ring-teal-500"
@@ -184,7 +178,7 @@ const UpdateCarPage = () => {
                     <div className="text-center mt-8">
                         <button
                             type="submit"
-                            className="bg-teal-600 hover:bg-teal-500 transition duration-300 px-10 py-3 rounded-xl font-semibold text-white shadow-lg hover:shadow-teal-500/30"
+                            className="custom-btn"
                         >
                             Update Car
                         </button>

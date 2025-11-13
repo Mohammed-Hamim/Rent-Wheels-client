@@ -5,8 +5,6 @@ const Card = ({ car }) => {
 
     return (
 
-
-
         <div>
             <div className="bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-600">
                 {/* Car Image */}
@@ -18,7 +16,7 @@ const Card = ({ car }) => {
                     />
                     <div className={`  absolute top-2 right-2`}>
                         {
-                            car?.status ? <span className='bg-red-400 badge text-gray-900 font-bold'>{car.status}</span> : <span className='badge bg-teal-500 text-gray-900 font-bold'>Available</span>
+                            car?.status ? <span className='bg-red-400 badge text-gray-900 font-bold'>{car.status}</span> : <span className='badge bg-green-400 text-gray-900 font-bold'>Available</span>
                         }
                     </div>
                 </div>
@@ -42,7 +40,7 @@ const Card = ({ car }) => {
                     </p>
 
                     <Link to={`/carDetails/${car._id}`}
-                        className="w-full btn bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg font-medium transition">
+                        className="w-full btn custom-btn">
                         View Details
                     </Link>
                 </div>
