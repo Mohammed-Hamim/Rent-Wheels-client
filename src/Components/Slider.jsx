@@ -41,7 +41,7 @@ const Slider = () => {
                                 {/* Left Content */}
                                 <div className="w-full md:w-1/2 space-y-6">
                                     <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                                        <HeroType title={slide.title}>
+                                        <HeroType key={idx} title={slide.title}>
 
                                         </HeroType>
                                     </h1>

@@ -7,7 +7,7 @@ export default function HeroType({title}) {
         words: [title],
         loop: false, // play once per slide
         typeSpeed: 50,
-        deleteSpeed: 100,
+        deleteSpeed: 0,
         delaySpeed: 500,
     });
 
